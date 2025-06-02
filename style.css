@@ -1,4 +1,3 @@
-/* Base styles */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -9,7 +8,6 @@ body {
 
 nav {
     background-color: #8ac6ff;
-    /* Light blue background */
     padding: 15px 0;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(138, 198, 255, 0.5);
@@ -31,18 +29,19 @@ nav {
 
 .menu a {
     color: #0b3d91;
-    /* Dark blue text */
     text-decoration: none;
     padding: 8px 12px;
     display: inline-block;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    /* Make all top-level links bold */
+    font-size: 16px;
+    /* Uniform font size */
 }
 
-.menu li:hover>a,
-.menu li.open>a {
+.menu li:hover>a {
     background-color: #b6d9ff;
-    /* Light hover blue */
     color: #0b3d91;
 }
 
@@ -59,7 +58,7 @@ nav {
     padding: 10px 0;
 }
 
-.menu li.open .dropdown-content {
+.menu li.dropdown:hover .dropdown-content {
     display: block;
 }
 
@@ -69,13 +68,15 @@ nav {
     list-style: none;
 }
 
+/* Make all dropdown links consistent: bold, font size, padding */
 .dropdown-content li a {
     color: #0b3d91;
     padding: 10px 20px;
     text-decoration: none;
     display: block;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .dropdown-content li a:hover {
@@ -83,7 +84,7 @@ nav {
 }
 
 .download-btn {
-    font-weight: normal;
+    font-weight: bold;
     font-size: 14px;
 }
 
@@ -95,19 +96,6 @@ nav {
     margin-top: 2px;
 }
 
-.download-item a {
-    color: #0b3d91;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: block;
-    border-radius: 4px;
-}
-
-.download-item a:hover {
-    background-color: #b6d9ff;
-}
-
-/* Hero image section */
 .hero {
     width: 100%;
     height: 350px;
@@ -122,7 +110,6 @@ nav {
     border-radius: 10px;
 }
 
-/* Main content */
 main {
     padding: 20px 25px;
     max-width: 900px;
@@ -132,7 +119,11 @@ main {
     box-shadow: 0 4px 12px rgba(138, 198, 255, 0.25);
 }
 
-/* Section headings and text */
+h2 {
+    color: #0b3d91;
+    margin-top: 0;
+}
+
 .toggle-section {
     display: block;
 }
@@ -141,24 +132,6 @@ main {
     display: none;
 }
 
-.toggle-section h2 {
-    font-family: 'Segoe UI Semibold', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    color: #0b3d91;
-    border-bottom: 2px solid #8ac6ff;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-.toggle-section p {
-    line-height: 1.6;
-    font-size: 16px;
-    color: #3a444d;
-    margin-bottom: 1em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Photo gallery */
 .photo-gallery {
     display: flex;
     flex-wrap: wrap;
