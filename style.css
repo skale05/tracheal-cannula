@@ -182,34 +182,33 @@ main p a[href="index.html"]:hover {
 nav ul li.download-item {
     display: block;
     /* no flex */
-    padding-left: 16px;
-    /* same as other links */
-    margin-bottom: 4px;
-    /* some spacing below */
+    padding-left: 0;
+    margin-bottom: 0;
 }
 
 .download-btn {
     display: block;
-    padding: 12px 0;
-    /* vertical padding only */
-    background-color: transparent;
-    /* remove bg for consistency */
+    padding: 12px 16px;
     color: #fff;
     font-weight: normal;
-    text-decoration: underline;
+    text-decoration: none;
     border-radius: 0;
+    transition: background-color 0.3s ease;
     cursor: pointer;
-    transition: color 0.3s ease;
+    background-color: rgb(72, 177, 214);
+    /* same as dropdown bg */
 }
 
 .download-btn:hover {
+    background-color: #5cc1e5;
     color: #000;
 }
 
+
 .download-instruction {
+    padding-left: 16px;
     font-size: 0.8rem;
     color: #d0e8f9;
     font-style: italic;
-    padding-left: 0;
     margin-top: 4px;
 }
