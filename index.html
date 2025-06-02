@@ -172,26 +172,22 @@
                 <img src="image11.jpg" alt="Image 11" class="photo-thumb" />
             </div>
 
-            <!-- The Modal -->
+            <!-- Modal for photos -->
             <div id="photoModal" class="modal">
                 <span class="close">&times;</span>
                 <img class="modal-content" id="modalImage" />
                 <div id="caption"></div>
             </div>
         </section>
-
-        <!-- Additional sections for videos etc can go here -->
-
     </main>
 
     <script>
-        // Navigation toggling
+        // Navigation toggle (same as before)
         const sections = {
             "nav-uber-mich": "uber-mich",
             "nav-einleitung": "einleitung",
             "nav-portfolioplanung": "portfolioplanung",
             "nav-photos": "photos",
-            // Add other nav links here as needed
         };
 
         Object.keys(sections).forEach(navId => {
@@ -204,7 +200,7 @@
             });
         });
 
-        // Modal photo gallery
+        // Modal photo gallery code
         const modal = document.getElementById("photoModal");
         const modalImg = document.getElementById("modalImage");
         const captionText = document.getElementById("caption");
