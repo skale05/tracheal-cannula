@@ -55,7 +55,6 @@
 
     <section id="home" class="hero">
         <img src="tracheal-cannula.jpg.webp" alt="Tracheal Cannula" />
-
     </section>
 
     <main>
@@ -150,79 +149,143 @@
                 - In der Kategorie geringer Aufwand: Video mit Interview eines tracheotomierten Patienten. Das Video
                 ist mit Einleitung, Interview und abschließender Reflexion. Die Reflexion zum Video wird mit Hilfe
                 von Leitfragen erfolgen.
-                - Kategorie geringster Aufwand: Aufnahme eines Audio zum Thema (Podcast) mit einem Experten aus der
-                Intensivpflege, der Erfahrungen mit tracheotomierten Patienten hat.
+                - Kategorie geringster Aufwand: Aufnahme eines Audio zum Thema (Eigene Abschlussreflektion) mit
+                abschließender schriftlicher Reflexion.
             </p>
         </section>
 
-        <!-- Photos Section -->
+        <!-- Photos -->
         <section id="photos" class="toggle-section hidden">
             <h2>Photos</h2>
             <div class="photo-gallery">
-                <img src="image1.jpg" alt="Image 1" class="photo-thumb" />
-                <img src="image2.jpg" alt="Image 2" class="photo-thumb" />
-                <img src="image3.jpg" alt="Image 3" class="photo-thumb" />
-                <img src="image4.jpg" alt="Image 4" class="photo-thumb" />
-                <img src="image5.jpg" alt="Image 5" class="photo-thumb" />
-                <img src="image6.jpg" alt="Image 6" class="photo-thumb" />
-                <img src="image7.jpg" alt="Image 7" class="photo-thumb" />
-                <img src="image8.jpg" alt="Image 8" class="photo-thumb" />
-                <img src="image9.jpg" alt="Image 9" class="photo-thumb" />
-                <img src="image10.jpg" alt="Image 10" class="photo-thumb" />
-                <img src="image11.jpg" alt="Image 11" class="photo-thumb" />
+                <img src="photo1.jpg" alt="Photo 1" />
+                <img src="photo2.jpg" alt="Photo 2" />
+                <img src="photo3.jpg" alt="Photo 3" />
+                <!-- Add more photos as needed -->
             </div>
+        </section>
 
-            <!-- Modal for photos -->
-            <div id="photoModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="modalImage" />
-                <div id="caption"></div>
-            </div>
+        <!-- Einleitung Video -->
+        <section id="einleitung-video" class="toggle-section hidden">
+            <h2>Einleitung Video</h2>
+            <video controls width="80%" style="border-radius: 10px; display: block; margin: 0 auto;">
+                <source src="einleitung-video.mp4" type="video/mp4" />
+                Ihr Browser unterstützt das Video-Tag nicht.
+            </video>
+        </section>
+
+        <!-- Interview Video -->
+        <section id="interview-video" class="toggle-section hidden">
+            <h2>Interview Video</h2>
+            <video controls width="80%" style="border-radius: 10px; display: block; margin: 0 auto;">
+                <source src="interview-video.mp4" type="video/mp4" />
+                Ihr Browser unterstützt das Video-Tag nicht.
+            </video>
+        </section>
+
+        <!-- Reflektion Kollegin -->
+        <section id="reflektion-kollegin" class="toggle-section hidden">
+            <h2>Reflektion meiner Kollegin</h2>
+            <p>Hier steht die Reflektion meiner Kollegin.</p>
+        </section>
+
+        <!-- Eigene Abschlussreflektion -->
+        <section id="eigene-abschlussreflektion" class="toggle-section hidden">
+            <h2>Eigene Abschlussreflektion</h2>
+            <p>Hier steht meine eigene Abschlussreflektion.</p>
         </section>
     </main>
 
+    <!-- Modal for photos -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img" alt="" />
+        <div id="caption"></div>
+    </div>
+
     <script>
-        // Navigation toggle (same as before)
+        // Map nav IDs to section IDs
         const sections = {
             "nav-uber-mich": "uber-mich",
             "nav-einleitung": "einleitung",
             "nav-portfolioplanung": "portfolioplanung",
             "nav-photos": "photos",
+            "nav-einleitung-video": "einleitung-video",
+            "nav-interview-video": "interview-video",
+            "nav-reflektion-kollegin": "reflektion-kollegin",
+            "nav-eigene-abschlussreflektion": "eigene-abschlussreflektion"
         };
+
+        const heroSection = document.querySelector('.hero');
 
         Object.keys(sections).forEach(navId => {
             document.getElementById(navId).addEventListener("click", (e) => {
                 e.preventDefault();
+
+                // Hide all toggle sections
                 Object.values(sections).forEach(secId => {
                     document.getElementById(secId).classList.add("hidden");
                 });
+
+                // Show selected section
                 document.getElementById(sections[navId]).classList.remove("hidden");
+
+                // Hide hero image when showing text sections
+                heroSection.style.display = 'none';
+
+                // Close any open dropdowns
+                document.querySelectorAll('li.dropdown').forEach(li => li.classList.remove('open'));
             });
         });
 
-        // Modal photo gallery code
-        const modal = document.getElementById("photoModal");
-        const modalImg = document.getElementById("modalImage");
-        const captionText = document.getElementById("caption");
-        const closeBtn = modal.querySelector(".close");
+        // Dropdown toggle on click for better usability
+        document.querySelectorAll('li.dropdown > a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const parentLi = e.target.parentElement;
 
-        document.querySelectorAll(".photo-thumb").forEach(img => {
+                // Close other open dropdowns
+                document.querySelectorAll('li.dropdown').forEach(li => {
+                    if (li !== parentLi) li.classList.remove('open');
+                });
+
+                // Toggle current dropdown
+                parentLi.classList.toggle('open');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', e => {
+            if (!e.target.closest('li.dropdown')) {
+                document.querySelectorAll('li.dropdown').forEach(li => li.classList.remove('open'));
+            }
+        });
+
+        // Modal photo gallery script
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modal-img");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.querySelector(".close");
+
+        document.querySelectorAll(".photo-gallery img").forEach(img => {
             img.addEventListener("click", () => {
                 modal.style.display = "block";
                 modalImg.src = img.src;
-                captionText.textContent = img.alt;
+                modalImg.alt = img.alt;
+                captionText.innerText = img.alt;
             });
         });
 
-        closeBtn.onclick = function () {
+        closeBtn.addEventListener("click", () => {
             modal.style.display = "none";
-        };
+        });
 
-        window.onclick = function (event) {
-            if (event.target == modal) {
+        // Close modal on click outside the image
+        modal.addEventListener("click", e => {
+            if (e.target === modal) {
                 modal.style.display = "none";
             }
-        };
+        });
     </script>
 </body>
 
