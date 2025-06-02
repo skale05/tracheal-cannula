@@ -22,12 +22,12 @@
                         <a href="presentation.pptx" download class="download-btn">
                             Power Point Presentation herunterladen
                         </a>
-                        <span class="download-instruction">Bitte nach dem Download in PowerPoint öffnen</span>
+                        <p class="download-instruction">Bitte nach dem Download in PowerPoint öffnen</p>
                     </li>
                     <li><a href="#" id="nav-photos">Photos</a></li>
                     <li>
                         <a href="handout.docx" download class="download-btn">Handout herunterladen</a>
-                        <span class="download-instruction">Bitte das Handout nach dem Download öffnen.</span>
+                        <p class="download-instruction">Bitte das Handout nach dem Download öffnen.</p>
                     </li>
                     <li><a href="teilnehmerin-video.mp4">Reflektion der Teilnehmerin</a></li>
                     <li><a href="eigenreflektion.html">Eigenreflektion</a></li>
@@ -181,12 +181,16 @@
     </main>
 
     <script>
-        // Navigation toggle
+        // Section toggle script
         const sections = {
             "nav-uber-mich": "uber-mich",
             "nav-einleitung": "einleitung",
             "nav-portfolioplanung": "portfolioplanung",
             "nav-photos": "photos",
+            "nav-einleitung-video": "einleitung-video",
+            "nav-interview-video": "interview-video",
+            "nav-reflektion-kollegin": "reflektion-kollegin",
+            "nav-eigene-abschlussreflektion": "eigene-abschlussreflektion"
         };
 
         Object.keys(sections).forEach(navId => {
