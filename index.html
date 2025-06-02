@@ -144,61 +144,88 @@
                 Hierbei verwende ich das Internet, Intranet und Bücher. Schwierigkeiten die dabei entstanden sind:
                 Sprachprobleme indirekte Paraphrasierung, Fachliteratur Suche. Ich habe mich für die schriftliche
                 Ausarbeitung entschieden da die Portfolioarbeit unsere letzte Modulprüfung ist vor der schriftlichen
-                Prüfung damit ich mich noch gut vorbereiten kann.
-                Für die Fortbildung habe ich zuerst mit den Dozenten gesprochen, ob wir ein Phantom mit Tracheotomie
-                (Loch im Hals) haben, um praktisch den Wechsel einer Trachealkanüle zu demonstrieren. Ich habe einen
-                Termin am 28.04.2025 und eine PowerPoint-Präsentation erstellt, unter Verwendung von Büchern und dem
-                Internet. Ich habe mich für die Fortbildung entschieden, weil ich gerne Vortrag halte. Ich hatte
-                besonders Spaß bei der praktischen Demonstration direkt an dem Phantom, da die Kolleg*innen es besser
-                merken und an Patient*innen umsetzen können. Schwierigkeiten dabei waren einen Termin mit dem
-                Kolleg*innen zu finden, bei der Wahl was ich genau demonstrieren möchte (Verbandswechsel oder Kanüle
-                Wechsel) und das Phantom hat keine Trachealkanüle.
-                - In der Kategorie geringer Aufwand: Videoaufnahme mit Interview eines tracheotomierten Patienten
-                inklusive Nachbereitung.
-                - In der Kategorie mittlerer Aufwand: Eigenreflektion nach Abschluss der Portfolioarbeit.
+                Prüfung damit ich mich gut vorbereite und meine Kenntnisse erweitere.
+                Station interne Fortbildung: Ausarbeitung eines PowerPoint-Referates, welche ich in der Station
+                halten werde.
+                - In der Kategorie geringer Aufwand: Video mit Interview eines tracheotomierten Patienten. Das Video
+                ist mit Einleitung, Interview und abschließender Reflexion. Die Reflexion zum Video wird mit Hilfe
+                von Leitfragen erfolgen.
+                - Kategorie geringster Aufwand: Aufnahme eines Audio zum Thema (Podcast) mit einem Experten aus der
+                Intensivpflege, der Erfahrungen mit tracheotomierten Patienten hat.
             </p>
         </section>
 
-        <!-- Photos Section: Updated Gallery -->
+        <!-- Photos Section -->
         <section id="photos" class="toggle-section hidden">
-            <h2>Fotos</h2>
-            <div class="photo-grid">
-                <img src="image1.jpg" alt="Foto 1" class="clickable-photo" />
-                <img src="image2.jpg" alt="Foto 2" class="clickable-photo" />
-                <img src="image3.jpg" alt="Foto 3" class="clickable-photo" />
-                <img src="image4.jpg" alt="Foto 4" class="clickable-photo" />
-                <!-- Füge weitere Fotos nach Bedarf hinzu -->
+            <h2>Photos</h2>
+            <div class="photo-gallery">
+                <img src="image1.jpg" alt="Image 1" class="photo-thumb" />
+                <img src="image2.jpg" alt="Image 2" class="photo-thumb" />
+                <img src="image3.jpg" alt="Image 3" class="photo-thumb" />
+                <img src="image4.jpg" alt="Image 4" class="photo-thumb" />
+                <img src="image5.jpg" alt="Image 5" class="photo-thumb" />
+                <img src="image6.jpg" alt="Image 6" class="photo-thumb" />
+                <img src="image7.jpg" alt="Image 7" class="photo-thumb" />
+                <img src="image8.jpg" alt="Image 8" class="photo-thumb" />
+                <img src="image9.jpg" alt="Image 9" class="photo-thumb" />
+                <img src="image10.jpg" alt="Image 10" class="photo-thumb" />
+                <img src="image11.jpg" alt="Image 11" class="photo-thumb" />
+            </div>
+
+            <!-- The Modal -->
+            <div id="photoModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modalImage" />
+                <div id="caption"></div>
             </div>
         </section>
 
-        <!-- Modal Div for photo zoom -->
-        <div class="modal" id="modal">
-            <span class="modal-close" id="modal-close">&times;</span>
-            <img id="modal-img" src="" alt="Vergrößertes Foto" />
-        </div>
+        <!-- Additional sections for videos etc can go here -->
+
     </main>
 
-    <footer>
-        <p>&copy; 2025 Katerina Gjorgjevikj. Alle Rechte vorbehalten.</p>
-    </footer>
-
-    <!-- JavaScript for photo modal -->
     <script>
-        const modal = document.getElementById("modal");
-        const modalImg = document.getElementById("modal-img");
-        const closeBtn = document.getElementById("modal-close");
+        // Navigation toggling
+        const sections = {
+            "nav-uber-mich": "uber-mich",
+            "nav-einleitung": "einleitung",
+            "nav-portfolioplanung": "portfolioplanung",
+            "nav-photos": "photos",
+            // Add other nav links here as needed
+        };
 
-        document.querySelectorAll(".clickable-photo").forEach(img => {
-            img.addEventListener("click", () => {
-                modal.style.display = "block";
-                modalImg.src = img.src;
-                modalImg.alt = img.alt;
+        Object.keys(sections).forEach(navId => {
+            document.getElementById(navId).addEventListener("click", (e) => {
+                e.preventDefault();
+                Object.values(sections).forEach(secId => {
+                    document.getElementById(secId).classList.add("hidden");
+                });
+                document.getElementById(sections[navId]).classList.remove("hidden");
             });
         });
 
-        closeBtn.onclick = () => modal.style.display = "none";
-        modal.onclick = (e) => {
-            if (e.target === modal) modal.style.display = "none";
+        // Modal photo gallery
+        const modal = document.getElementById("photoModal");
+        const modalImg = document.getElementById("modalImage");
+        const captionText = document.getElementById("caption");
+        const closeBtn = modal.querySelector(".close");
+
+        document.querySelectorAll(".photo-thumb").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "block";
+                modalImg.src = img.src;
+                captionText.textContent = img.alt;
+            });
+        });
+
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         };
     </script>
 </body>
