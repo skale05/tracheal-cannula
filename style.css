@@ -175,3 +175,20 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
 .back-link a:hover {
     color: #1e40af;
 }
+
+.back-link a {
+    display: inline-block;
+    background-color: rgb(72, 177, 214);
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.back-link a:hover {
+    background-color: #1e40af;
+    color: white;
+}
