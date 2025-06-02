@@ -127,31 +127,76 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
     margin-bottom: 20px;
 }
 
+/* Gallery grid: 4 photos per row */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 0 20px 40px 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .gallery img {
     width: 100%;
-    height: 250px;
-    /* fixed height */
-    object-fit: cover;
-    /* crop to fill container */
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
     transition: transform 0.3s ease;
-    cursor: zoom-in;
-    /* show zoom cursor */
 }
 
 .gallery img:hover {
     transform: scale(1.05);
 }
+
+/* Modal overlay for enlarged photo */
+.modal {
+    display: none;
+    /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    animation: zoomIn 0.3s ease forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Close button inside modal */
+.modal-close {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    z-index: 2100;
+}
+
 
 /* Main content padding for all pages */
 main {
