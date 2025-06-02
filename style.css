@@ -207,5 +207,8 @@ nav ul li.download-item {
     font-size: 0.8rem;
     color: #d0e8f9;
     font-style: italic;
-    padding-left: 6px;
+    padding-left: 16px;
+    /* match button's horizontal padding */
+    margin-top: 4px;
+    /* small gap on top */
 }
