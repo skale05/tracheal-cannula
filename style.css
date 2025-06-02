@@ -206,9 +206,16 @@ nav ul li.download-item {
 
 
 .download-instruction {
-    padding-left: 16px;
-    font-size: 10px;
+    font-size: 0.8rem;
+    /* or px, your choice */
     color: #d0e8f9;
     font-style: italic;
+    padding-left: 16px;
+    /* Indent wrapped lines */
     margin-top: 4px;
+    /* space above */
+    max-width: 300px;
+    /* limit width */
+    display: block;
+    /* ensure block for padding */
 }
