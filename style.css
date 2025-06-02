@@ -31,6 +31,7 @@ nav ul.menu {
     list-style: none;
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 nav ul.menu li {
@@ -46,6 +47,12 @@ nav ul.menu li a {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 4px;
     cursor: pointer;
+}
+
+/* Focus styles for accessibility */
+nav ul.menu li a:focus {
+    outline: 2px solid #1e40af;
+    outline-offset: 2px;
 }
 
 nav ul.menu li a:hover {
@@ -78,9 +85,11 @@ nav ul.menu li.dropdown .dropdown-content li a {
     display: block;
 }
 
-nav ul.menu li.dropdown .dropdown-content li a:hover {
+nav ul.menu li.dropdown .dropdown-content li a:hover,
+nav ul.menu li.dropdown .dropdown-content li a:focus {
     background-color: #5cc1e5;
     color: #000;
+    outline: none;
 }
 
 nav ul.menu li.dropdown:hover>.dropdown-content {
@@ -198,9 +207,11 @@ nav ul li.download-item {
     background-color: rgb(72, 177, 214);
 }
 
-.download-btn:hover {
+.download-btn:hover,
+.download-btn:focus {
     background-color: #5cc1e5;
     color: #000;
+    outline: none;
 }
 
 .download-instruction {
@@ -250,4 +261,25 @@ audio {
 /* Cursor pointer on nav links that toggle content */
 nav ul.menu li a {
     cursor: pointer;
+}
+
+/* === Responsive adjustments === */
+@media (max-width: 768px) {
+    nav ul.menu {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    nav ul.menu li.dropdown .dropdown-content {
+        position: static;
+        min-width: 100%;
+        box-shadow: none;
+        border-radius: 0 0 6px 6px;
+    }
+
+    nav ul.menu li.dropdown:hover>.dropdown-content {
+        display: flex;
+        flex-direction: column;
+    }
 }
