@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8" />
@@ -12,7 +12,10 @@
     <nav>
         <ul class="menu">
             <li><a href="uber-mich.html">Über mich</a></li>
-            <li><a href="word.docx">Word</a></li>
+
+            <!-- New Einleitung and Portfolioplanung links after Über mich -->
+            <li><a href="#" id="nav-einleitung">Einleitung</a></li>
+            <li><a href="#" id="nav-portfolioplanung">Portfolioplanung</a></li>
 
             <li class="dropdown">
                 <a href="#fortbildung">Fortbildung</a>
@@ -26,15 +29,30 @@
                     <li><a href="photos.html">Photos</a></li>
                     <li><a href="teilnehmerin-video.mp4">Reflektion der Teilnehmerin</a></li>
                     <li><a href="eigenreflektion.html">Eigenreflektion</a></li>
+                    <!-- New Handout download -->
+                    <li class="download-item">
+                        <a href="handout.docx" download class="download-btn">Handout herunterladen</a>
+                        <span class="download-instruction">Bitte das Handout nach dem Download öffnen.</span>
+                    </li>
                 </ul>
             </li>
 
             <li class="dropdown">
                 <a href="#interview">Interview</a>
                 <ul class="dropdown-content">
-                    <li><a href="interview-video.mp4">Video</a></li>
+                    <li><a href="#" id="nav-einleitung-video">Einleitung zum Video</a></li>
+                    <li><a href="#" id="nav-interview-video">Interview mit Patient</a></li>
                     <li><a href="interview-eigenreflektion.html">Eigenreflektion</a></li>
-                    <li><a href="interview-reflektion.html">Reflektion</a></li>
+                    <!-- Reflektion removed as requested -->
+                </ul>
+            </li>
+
+            <!-- New Abschluss Reflektion dropdown -->
+            <li class="dropdown">
+                <a href="#">Abschluss Reflektion</a>
+                <ul class="dropdown-content">
+                    <li><a href="#" id="nav-reflektion-kollegin">Reflektion meiner Kollegin</a></li>
+                    <li><a href="#" id="nav-eigene-abschlussreflektion">Eigene Abschlussreflektion</a></li>
                 </ul>
             </li>
         </ul>
@@ -44,6 +62,97 @@
         <img src="tracheal-cannula.jpg.webp" alt="Tracheal Cannula" />
         <div class="overlay"></div>
     </section>
+
+    <!-- Placeholders for toggle content -->
+
+    <main>
+
+        <section id="einleitung" class="toggle-section hidden">
+            <h2>Einleitung</h2>
+            <p>Hier steht der Text für die Einleitung...</p>
+        </section>
+
+        <section id="portfolioplanung" class="toggle-section hidden">
+            <h2>Portfolioplanung</h2>
+            <p>Hier steht der Text für die Portfolioplanung...</p>
+        </section>
+
+        <section id="einleitung-video" class="toggle-section hidden">
+            <h2>Einleitung zum Video</h2>
+            <p>Text zur Einführung des Videos...</p>
+        </section>
+
+        <section id="interview-video" class="toggle-section hidden">
+            <h2>Interview mit Patient</h2>
+            <video controls width="600">
+                <source src="interview-video.mp4" type="video/mp4" />
+                Dein Browser unterstützt das Video-Tag nicht.
+            </video>
+        </section>
+
+        <section id="reflektion-kollegin" class="toggle-section hidden">
+            <h2>Reflektion meiner Kollegin</h2>
+            <audio controls>
+                <source src="kollegin-audio.mp3" type="audio/mpeg" />
+                Dein Browser unterstützt das Audio-Element nicht.
+            </audio>
+        </section>
+
+        <section id="eigene-abschlussreflektion" class="toggle-section hidden">
+            <h2>Eigene Abschlussreflektion</h2>
+            <p>Hier steht der Text für die eigene Abschlussreflektion...</p>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple JS to toggle showing/hiding placeholder sections on nav click
+
+        // Utility to hide all toggle sections
+        function hideAllSections() {
+            document.querySelectorAll('.toggle-section').forEach(sec => {
+                sec.classList.add('hidden');
+            });
+        }
+
+        // Add click handlers for each nav item that toggles a section
+        document.getElementById('nav-einleitung').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            document.getElementById('einleitung').classList.remove('hidden');
+        });
+
+        document.getElementById('nav-portfolioplanung').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            document.getElementById('portfolioplanung').classList.remove('hidden');
+        });
+
+        document.getElementById('nav-einleitung-video').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            document.getElementById('einleitung-video').classList.remove('hidden');
+        });
+
+        document.getElementById('nav-interview-video').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            document.getElementById('interview-video').classList.remove('hidden');
+        });
+
+        document.getElementById('nav-reflektion-kollegin').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            document.getElementById('reflektion-kollegin').classList.remove('hidden');
+        });
+
+        document.getElementById('nav-eigene-abschlussreflektion').addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            document.getElementById('eigene-abschlussreflektion').classList.remove('hidden');
+        });
+    </script>
+
 </body>
 
 </html>

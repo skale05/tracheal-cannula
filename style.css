@@ -151,16 +151,17 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
 
 /* Main content padding for all pages */
 main {
-    padding: 100px 20px;
+    padding: 40px 20px 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(72, 177, 214, 0.3);
 }
 
 /* Back button styling (Zurück zur Startseite) */
 .back-link,
-/* for pages that use back-link div */
-main p a[href="index.html"]
-
-/* target direct links inside <main> */
-    {
+main p a[href="index.html"] {
     display: inline-block;
     background-color: rgb(72, 177, 214);
     color: white;
@@ -181,7 +182,6 @@ main p a[href="index.html"]:hover {
 /* Download item in dropdown */
 nav ul li.download-item {
     display: block;
-    /* no flex */
     padding-left: 0;
     margin-bottom: 0;
 }
@@ -196,7 +196,6 @@ nav ul li.download-item {
     transition: background-color 0.3s ease;
     cursor: pointer;
     background-color: rgb(72, 177, 214);
-    /* same as dropdown bg */
 }
 
 .download-btn:hover {
@@ -204,18 +203,51 @@ nav ul li.download-item {
     color: #000;
 }
 
-
 .download-instruction {
     font-size: 0.8rem;
-    /* or px, your choice */
     color: #d0e8f9;
     font-style: italic;
     padding-left: 16px;
-    /* Indent wrapped lines */
     margin-top: 4px;
-    /* space above */
     max-width: 300px;
-    /* limit width */
     display: block;
-    /* ensure block for padding */
+}
+
+/* === New styles for toggle content sections === */
+
+.toggle-section {
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #e8f4fb;
+    border-left: 6px solid rgb(72, 177, 214);
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(72, 177, 214, 0.3);
+    color: #073763;
+}
+
+.toggle-section h2 {
+    margin-bottom: 12px;
+}
+
+.toggle-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Hide sections by default */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive for video and audio */
+video,
+audio {
+    max-width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Cursor pointer on nav links that toggle content */
+nav ul.menu li a {
+    cursor: pointer;
 }
