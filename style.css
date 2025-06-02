@@ -91,13 +91,16 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
 .hero {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     overflow: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .hero img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .hero .overlay {
@@ -127,7 +130,6 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
     margin-bottom: 20px;
 }
 
-/* Photo grid container */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -140,14 +142,11 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
 .photo-grid img {
     width: 100%;
     height: 250px;
-    /* fixed height */
     object-fit: cover;
-    /* crop to fill container */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     cursor: zoom-in;
-    /* show zoom cursor */
 }
 
 .photo-grid img:hover {
@@ -218,7 +217,7 @@ nav ul li.download-item {
     display: block;
 }
 
-/* === Toggle content sections styles === */
+/* === New styles for toggle content sections === */
 
 .toggle-section {
     padding: 20px;
