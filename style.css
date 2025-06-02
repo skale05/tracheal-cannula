@@ -180,35 +180,36 @@ main p a[href="index.html"]:hover {
 
 /* Download item in dropdown */
 nav ul li.download-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 4px 12px;
-    gap: 4px;
+    display: block;
+    /* no flex */
+    padding-left: 16px;
+    /* same as other links */
+    margin-bottom: 4px;
+    /* some spacing below */
 }
 
 .download-btn {
-    display: inline-block;
-    background-color: rgb(72, 177, 214);
-    color: white;
-    font-weight: 600;
-    padding: 10px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-size: 0.9rem;
+    display: block;
+    padding: 12px 0;
+    /* vertical padding only */
+    background-color: transparent;
+    /* remove bg for consistency */
+    color: #fff;
+    font-weight: normal;
+    text-decoration: underline;
+    border-radius: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .download-btn:hover {
-    background-color: #1e40af;
+    color: #000;
 }
 
 .download-instruction {
     font-size: 0.8rem;
     color: #d0e8f9;
     font-style: italic;
-    padding-left: 16px;
-    /* match button's horizontal padding */
+    padding-left: 0;
     margin-top: 4px;
-    /* small gap on top */
 }
