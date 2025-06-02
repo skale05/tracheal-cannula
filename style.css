@@ -31,7 +31,6 @@ nav ul.menu {
     list-style: none;
     display: flex;
     gap: 24px;
-    flex-wrap: wrap;
 }
 
 nav ul.menu li {
@@ -47,12 +46,6 @@ nav ul.menu li a {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 4px;
     cursor: pointer;
-}
-
-/* Focus styles for accessibility */
-nav ul.menu li a:focus {
-    outline: 2px solid #1e40af;
-    outline-offset: 2px;
 }
 
 nav ul.menu li a:hover {
@@ -85,11 +78,9 @@ nav ul.menu li.dropdown .dropdown-content li a {
     display: block;
 }
 
-nav ul.menu li.dropdown .dropdown-content li a:hover,
-nav ul.menu li.dropdown .dropdown-content li a:focus {
+nav ul.menu li.dropdown .dropdown-content li a:hover {
     background-color: #5cc1e5;
     color: #000;
-    outline: none;
 }
 
 nav ul.menu li.dropdown:hover>.dropdown-content {
@@ -147,15 +138,19 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
 
 .gallery img {
     width: 100%;
-    height: auto;
+    height: 250px;
+    /* fixed height */
+    object-fit: cover;
+    /* crop to fill container */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    cursor: zoom-in;
+    /* show zoom cursor */
 }
 
 .gallery img:hover {
     transform: scale(1.05);
-    cursor: pointer;
 }
 
 /* Main content padding for all pages */
@@ -207,11 +202,9 @@ nav ul li.download-item {
     background-color: rgb(72, 177, 214);
 }
 
-.download-btn:hover,
-.download-btn:focus {
+.download-btn:hover {
     background-color: #5cc1e5;
     color: #000;
-    outline: none;
 }
 
 .download-instruction {
@@ -263,23 +256,24 @@ nav ul.menu li a {
     cursor: pointer;
 }
 
-/* === Responsive adjustments === */
-@media (max-width: 768px) {
-    nav ul.menu {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-    }
+/* === Lightbox modal styles for enlarged photos === */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 15000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
 
-    nav ul.menu li.dropdown .dropdown-content {
-        position: static;
-        min-width: 100%;
-        box-shadow: none;
-        border-radius: 0 0 6px 6px;
-    }
-
-    nav ul.menu li.dropdown:hover>.dropdown-content {
-        display: flex;
-        flex-direction: column;
-    }
+.lightbox-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }

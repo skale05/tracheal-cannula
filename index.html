@@ -172,40 +172,4 @@
             </audio>
         </section>
 
-        <section id="eigene-abschlussreflektion" class="toggle-section hidden">
-            <h2>Eigene Abschlussreflektion</h2>
-            <p>Hier steht der Text für die eigene Abschlussreflektion...</p>
-        </section>
-    </main>
-
-    <script>
-        // Hide all toggle sections
-        function hideAllSections() {
-            document.querySelectorAll('.toggle-section').forEach(sec => {
-                sec.classList.add('hidden');
-            });
-        }
-
-        // Add click handlers to nav links to show related section
-        const mappings = {
-            'nav-einleitung': 'einleitung',
-            'nav-portfolioplanung': 'portfolioplanung',
-            'nav-einleitung-video': 'einleitung-video',
-            'nav-interview-video': 'interview-video',
-            'nav-reflektion-kollegin': 'reflektion-kollegin',
-            'nav-eigene-abschlussreflektion': 'eigene-abschlussreflektion'
-        };
-
-        Object.entries(mappings).forEach(([navId, sectionId]) => {
-            document.getElementById(navId).addEventListener('click', e => {
-                e.preventDefault();
-                hideAllSections();
-                document.getElementById(sectionId).classList.remove('hidden');
-                // Optionally scroll to section
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-</body>
-
-</html>
+        <section id="eigene
