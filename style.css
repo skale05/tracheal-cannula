@@ -192,3 +192,28 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
     background-color: #1e40af;
     color: white;
 }
+
+.download-btn {
+    display: inline-block;
+    background-color: rgb(72, 177, 214);
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.download-btn:hover {
+    background-color: #1e40af;
+    color: white;
+}
+
+.download-instruction {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 8px;
+    max-width: 300px;
+}
