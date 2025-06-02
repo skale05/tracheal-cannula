@@ -149,13 +149,18 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
     cursor: pointer;
 }
 
-/* Back button styling */
-.back-link {
-    text-align: center;
-    margin: 40px 0;
+/* Main content padding for all pages */
+main {
+    padding: 100px 20px;
 }
 
-.back-link a {
+/* Back button styling (Zurück zur Startseite) */
+.back-link,
+/* for pages that use back-link div */
+main p a[href="index.html"]
+
+/* target direct links inside <main> */
+    {
     display: inline-block;
     background-color: rgb(72, 177, 214);
     color: white;
@@ -165,9 +170,11 @@ nav ul.menu li.dropdown:hover>.dropdown-content {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-.back-link a:hover {
+.back-link a:hover,
+main p a[href="index.html"]:hover {
     background-color: #1e40af;
 }
 

@@ -8,11 +8,43 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
-    <main style="padding: 100px 20px;">
+<body class="about-page">
+    <nav>
+        <ul class="menu">
+            <li><a href="uber-mich.html">Über mich</a></li>
+            <li><a href="word.docx">Word</a></li>
+            <li class="dropdown">
+                <a href="#fortbildung">Fortbildung</a>
+                <ul class="dropdown-content">
+                    <li class="download-item">
+                        <a href="presentation.pptx" download class="download-btn">
+                            Power Point Presentation herunterladen
+                        </a>
+                        <span class="download-instruction">Bitte nach dem Download in PowerPoint öffnen</span>
+                    </li>
+                    <li><a href="photos.html">Photos</a></li>
+                    <li><a href="teilnehmerin-video.mp4">Reflektion der Teilnehmerin</a></li>
+                    <li><a href="eigenreflektion.html">Eigenreflektion</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#interview">Interview</a>
+                <ul class="dropdown-content">
+                    <li><a href="interview-video.mp4">Video</a></li>
+                    <li><a href="interview-eigenreflektion.html">Eigenreflektion</a></li>
+                    <li><a href="interview-reflektion.html">Reflektion</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content">
         <h1>Über mich</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat egestas efficitur.</p>
-        <p><a href="index.html">Zurück zur Startseite</a></p>
+
+        <div class="back-link">
+            <a href="index.html">Zurück zur Startseite</a>
+        </div>
     </main>
 </body>
 
