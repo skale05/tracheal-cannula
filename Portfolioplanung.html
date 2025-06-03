@@ -3,61 +3,50 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolioplanung</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f9ff;
-            color: #0b3d91;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #0b3d91;
-        }
-
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 10px 20px;
-            background-color: #8ac6ff;
-            color: #0b3d91;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .back-link:hover {
-            background-color: #5eb1ff;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <h1>Portfolioplanung</h1>
-    <p>
-        Für die Planung meines Portfolios habe ich relevante Themen aus der Praxis gewählt, die sowohl theoretische als
-        auch praktische Relevanz haben. Die Auswahl erfolgte basierend auf meinen täglichen Aufgaben und den Lernzielen
-        des Kurses.
-    </p>
-    <p>
-        Die Struktur umfasst Fallbeispiele, Videoanalysen, Reflexionen und ergänzende Materialien. Ziel ist es, ein
-        aussagekräftiges und praxisnahes Portfolio zu erstellen.
-    </p>
+    <!-- Navigation bar -->
+    <nav>
+        <ul class="menu">
+            <li><a href="uber-mich.html">Über Mich</a></li>
+            <li><a href="einleitung.html">Einleitung</a></li>
+            <li><a href="portfolioplanung.html">Portfolioplanung</a></li>
+            <li class="dropdown">
+                <a href="#">Fortbildung</a>
+                <ul class="dropdown-content">
+                    <li><a id="nav-einleitung-video" href="#">Einleitung zum Video</a></li>
+                    <li><a id="nav-interview-video" href="#">Interview mit Patient:in</a></li>
+                    <li><a id="nav-eigene-reflektion" href="#">Eigenreflektion</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Abschluss Reflektion</a>
+                <ul class="dropdown-content">
+                    <li><a id="nav-reflektion-kollegin" href="#">Reflektion meiner Kollegin (Audio)</a></li>
+                    <li><a id="nav-eigene-abschlussreflektion" href="#">Eigene Abschlussreflektion (PDF)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-    <a href="index.html" class="back-link">ZURÜCK ZUR STARTSEITE</a>
+    <main>
+        <h1>Portfolioplanung</h1>
+        <p>
+            Die Planung meines Portfolios umfasst die Auswahl der relevanten Themen, die strukturierte Aufarbeitung von
+            Inhalten sowie die Dokumentation meiner Lernfortschritte. Dabei orientiere ich mich an den Vorgaben der
+            Weiterbildung und meinen persönlichen Zielen.
+        </p>
+        <p>
+            Die Portfolioplanung unterstützt mich dabei, den Überblick zu behalten und gezielt an meinen Kompetenzen zu
+            arbeiten.
+        </p>
+
+        <a href="index.html" class="back-link">ZURÜCK ZUR STARTSEITE</a>
+    </main>
 </body>
 
 </html>

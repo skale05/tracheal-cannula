@@ -3,60 +3,50 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Einleitung</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f9ff;
-            color: #0b3d91;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #0b3d91;
-        }
-
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 10px 20px;
-            background-color: #8ac6ff;
-            color: #0b3d91;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .back-link:hover {
-            background-color: #5eb1ff;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <h1>Einleitung</h1>
-    <p>
-        Diese Arbeit beschäftigt sich mit dem Einsatz und der Pflege von Trachealkanülen. Ziel ist es, ein vertieftes
-        Verständnis für die klinischen Anforderungen sowie die Bedürfnisse der betroffenen Patienten zu entwickeln.
-    </p>
-    <p>
-        Die folgenden Kapitel dokumentieren meine persönliche Entwicklung im Rahmen dieser Weiterbildung und spiegeln
-        mein wachsendes Fachwissen sowie meine reflektierte Praxis wider.
-    </p>
+    <!-- Navigation bar -->
+    <nav>
+        <ul class="menu">
+            <li><a href="uber-mich.html">Über Mich</a></li>
+            <li><a href="einleitung.html">Einleitung</a></li>
+            <li><a href="portfolioplanung.html">Portfolioplanung</a></li>
+            <li class="dropdown">
+                <a href="#">Fortbildung</a>
+                <ul class="dropdown-content">
+                    <li><a id="nav-einleitung-video" href="#">Einleitung zum Video</a></li>
+                    <li><a id="nav-interview-video" href="#">Interview mit Patient:in</a></li>
+                    <li><a id="nav-eigene-reflektion" href="#">Eigenreflektion</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Abschluss Reflektion</a>
+                <ul class="dropdown-content">
+                    <li><a id="nav-reflektion-kollegin" href="#">Reflektion meiner Kollegin (Audio)</a></li>
+                    <li><a id="nav-eigene-abschlussreflektion" href="#">Eigene Abschlussreflektion (PDF)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-    <a href="index.html" class="back-link">ZURÜCK ZUR STARTSEITE</a>
+    <main>
+        <h1>Einleitung</h1>
+        <p>
+            In diesem Portfolio präsentiere ich meine Lernerfahrungen und Reflexionen aus der Weiterbildung. Ziel ist
+            es, meinen Entwicklungsprozess transparent zu machen und die Fortschritte meiner Kompetenzen sichtbar zu
+            dokumentieren.
+        </p>
+        <p>
+            Die einzelnen Abschnitte behandeln verschiedene Themenbereiche, die für meine berufliche Entwicklung von
+            Bedeutung sind.
+        </p>
+
+        <a href="index.html" class="back-link">ZURÜCK ZUR STARTSEITE</a>
+    </main>
 </body>
 
 </html>
