@@ -11,47 +11,52 @@
 <body>
     <nav>
         <ul class="menu">
-            <li><a href="#" id="nav-uber-mich">Über mich</a></li>
-            <li><a href="#" id="nav-einleitung">Einleitung</a></li>
-            <li><a href="#" id="nav-portfolioplanung">Portfolioplanung</a></li>
-
+            <li><a href="#ueber_mich">Über mich</a></li>
             <li class="dropdown">
-                <a href="#fortbildung">Fortbildung</a>
+                <a href="#einleitung">Einleitung</a>
                 <ul class="dropdown-content">
-                    <li>
-                        <a href="presentation.pptx">Presentation</a>
+                    <li><a href="#einleitung">Thema</a></li>
+                    <li><a href="#definition">Definition</a></li>
+                    <li><a href="#geschichte">Geschichte</a></li>
+                    <li><a href="#anatomie">Anatomie</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#portfolioplanung">Portfolioplanung</a>
+                <ul class="dropdown-content">
+                    <li><a href="#arbeiten">Arbeiten</a></li>
+                    <li><a href="#medien">Medien</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#medien">Medien</a>
+                <ul class="dropdown-content">
+                    <li><a href="images/trachealkanuele-vorderansicht.jpg" target="_blank">Trachealkanüle
+                            Vorderansicht</a></li>
+                    <li><a href="images/trachealkanuele-querschnitt.jpg" target="_blank">Trachealkanüle Querschnitt</a>
                     </li>
-                    <p class="download-instruction">Bitte nach dem Download in PowerPoint öffnen</p>
+                    <li><a href="images/trachealkanuele-und-mensch.jpg" target="_blank">Trachealkanüle und Mensch</a>
+                    </li>
+                    <li><a href="video/trachealkanuele-video.mp4" target="_blank">Trachealkanüle Video</a></li>
+                    <li><a href="handout.docx" class="download-btn" download>Handout herunterladen</a></li>
+                    <li><a href="presentation.pptx" class="download-btn" download>Presentation herunterladen</a></li>
+                    <li><a href="sources.pdf" class="download-btn" download>Quellen herunterladen</a></li>
+                    <li><a href="literature.pdf" class="download-btn" download>Literatur herunterladen</a></li>
+                    <li><a href="exposee.pdf" class="download-btn" download>Exposé herunterladen</a></li>
+                    <li>
+                        <p class="download-instruction">Bitte nach dem Download in PowerPoint öffnen</p>
+                    </li>
+                    <li>
+                        <p class="download-instruction">Handout als DOCX-Datei verfügbar</p>
+                    </li>
+                    <li>
+                        <p class="download-instruction">PDF Dateien können mit einem PDF-Reader geöffnet werden</p>
+                    </li>
+                </ul>
             </li>
-            <li><a href="#" id="nav-photos">Photos</a></li>
-            <li>
-                <a href="handout.docx">Handout herunterladen</a>
-            </li>
-            <p class="download-instruction">Bitte das Handout nach dem Download öffnen.</p>
-            </li>
-            <li><a href="teilnehmerin-video.mp4">Reflektion der Teilnehmerin</a></li>
-            <li><a href="eigenreflektion.html">Eigenreflektion</a></li>
-        </ul>
-        </li>
-
-        <li class="dropdown">
-            <a href="#interview">Interview</a>
-            <ul class="dropdown-content">
-                <li><a href="#" id="nav-einleitung-video">Einleitung zum Video</a></li>
-                <li><a href="#" id="nav-interview-video">Interview mit Patient</a></li>
-                <li><a href="interview-eigenreflektion.html">Eigenreflektion</a></li>
-            </ul>
-        </li>
-
-        <li class="dropdown">
-            <a href="#">Abschluss Reflektion</a>
-            <ul class="dropdown-content">
-                <li><a href="#" id="nav-reflektion-kollegin">Reflektion meiner Kollegin</a></li>
-                <li><a href="#" id="nav-eigene-abschlussreflektion">Eigene Abschlussreflektion</a></li>
-            </ul>
-        </li>
         </ul>
     </nav>
+
 
     <section id="home" class="hero">
         <img src="tracheal-cannula.jpg.webp" alt="Tracheal Cannula" />
@@ -194,12 +199,19 @@
         };
 
         Object.keys(sections).forEach(navId => {
-            document.getElementById(navId).addEventListener("click", e => {
-                e.preventDefault();
-                document.querySelectorAll(".toggle-section").forEach(sec => sec.classList.add("hidden"));
-                document.getElementById(sections[navId]).classList.remove("hidden");
-                window.scrollTo(0, 0);
-            });
+            const navElem = document.getElementById(navId);
+            if (navElem) {
+                navElem.addEventListener("click", e => {
+                    e.preventDefault();
+                    document.querySelectorAll(".toggle-section").forEach(sec => sec.classList.add("hidden"));
+                    const sectionId = sections[navId];
+                    const sectionElem = document.getElementById(sectionId);
+                    if (sectionElem) {
+                        sectionElem.classList.remove("hidden");
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
         });
 
         // Photo modal functionality
@@ -225,8 +237,8 @@
                 modal.style.display = "none";
             }
         };
-    </script>
-    <script>
+
+        // Dropdown toggle functionality
         document.querySelectorAll('.menu li.dropdown > a').forEach(toggle => {
             toggle.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -241,6 +253,7 @@
                 parent.classList.toggle('open');
             });
         });
+
 
         // Close dropdowns if clicking outside menu
         document.addEventListener('click', function (e) {
