@@ -95,21 +95,21 @@ nav {
 
 /* Download buttons styling: make consistent with dropdown links */
 .download-btn {
-    display: block;
-    font-weight: bold;
+    display: inline-block;
+    font-weight: normal;
+    /* change from bold to normal */
     font-size: 16px;
     color: #0b3d91;
     text-decoration: none;
-    padding: 10px 25px;
-    margin: 0;
-    /* remove left margin for alignment */
+    padding: 8px 18px;
+    margin-left: 25px;
     border-radius: 6px;
     background-color: #a1caff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease;
     border: 1.5px solid transparent;
     user-select: text;
-    font-family: inherit;
 }
+
 
 /* Hover effect for download buttons */
 .download-btn:hover {
