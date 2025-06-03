@@ -95,6 +95,11 @@ nav {
     background-color: #b6d9ff;
 }
 
+.dropdown-content li:not(:last-child) {
+    margin-bottom: 6px;
+}
+
+
 /* Download buttons styling: make consistent with dropdown links */
 .download-btn {
     display: block;
@@ -236,4 +241,8 @@ h2 {
     color: #ccc;
     font-size: 18px;
     max-width: 80%;
+}
+
+.menu li.dropdown>a {
+    cursor: pointer;
 }
