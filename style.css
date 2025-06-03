@@ -84,6 +84,7 @@ nav {
     display: block;
     border-radius: 6px;
     font-weight: normal;
+    /* Changed to normal for uniformity */
     font-size: 16px;
     transition: background-color 0.25s ease;
 }
@@ -97,7 +98,6 @@ nav {
 .download-btn {
     display: inline-block;
     font-weight: normal;
-    /* change from bold to normal */
     font-size: 16px;
     color: #0b3d91;
     text-decoration: none;
@@ -109,7 +109,6 @@ nav {
     border: 1.5px solid transparent;
     user-select: text;
 }
-
 
 /* Hover effect for download buttons */
 .download-btn:hover {
