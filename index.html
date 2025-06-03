@@ -202,79 +202,6 @@
     </main>
 
     <script>
-        // Section toggle
-        function toggleSection(id) {
-            const sections = document.querySelectorAll('.toggle-section');
-            sections.forEach(section => {
-                if (section.id === id) {
-                    section.classList.remove('hidden');
-                } else {
-                    section.classList.add('hidden');
-                }
-            });
-        }
-
-        document.getElementById('nav-uber-mich').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('uber-mich');
-        });
-
-        document.getElementById('nav-einleitung').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('einleitung');
-        });
-
-        document.getElementById('nav-portfolioplanung').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('portfolioplanung');
-        });
-
-        document.getElementById('nav-photos').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('photos');
-        });
-
-        document.getElementById('nav-einleitung-video').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('einleitung-video');
-        });
-
-        document.getElementById('nav-interview-video').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('interview-video');
-        });
-
-        document.getElementById('nav-reflektion-kollegin').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('reflektion-kollegin');
-        });
-
-        document.getElementById('nav-eigene-abschlussreflektion').addEventListener('click', e => {
-            e.preventDefault();
-            toggleSection('eigene-abschlussreflektion');
-        });
-
-        // Dropdown toggle on click
-        document.querySelectorAll('li.dropdown > a').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const parentLi = link.parentElement;
-                const isOpen = parentLi.classList.contains('open');
-                // Close all dropdowns
-                document.querySelectorAll('li.dropdown').forEach(li => li.classList.remove('open'));
-                // Toggle current
-                if (!isOpen) parentLi.classList.add('open');
-            });
-        });
-
-        // Close dropdown if clicking outside nav
-        document.addEventListener('click', e => {
-            if (!e.target.closest('nav')) {
-                document.querySelectorAll('li.dropdown').forEach(li => li.classList.remove('open'));
-            }
-        });
-
-
         document.addEventListener("DOMContentLoaded", function () {
             // Section toggle mapping
             const sections = {
@@ -288,27 +215,31 @@
                 "nav-eigene-abschlussreflektion": "eigene-abschlussreflektion"
             };
 
-            // Add click listeners for section toggling
+            // Toggle visible section and hide others
             Object.keys(sections).forEach(navId => {
                 const navElement = document.getElementById(navId);
                 if (navElement) {
                     navElement.addEventListener("click", e => {
                         e.preventDefault();
+
                         // Hide all toggle sections
                         document.querySelectorAll(".toggle-section").forEach(sec => {
                             sec.classList.add("hidden");
                         });
-                        // Show selected section
+
+                        // Show the selected one
                         const sectionId = sections[navId];
                         const section = document.getElementById(sectionId);
                         if (section) {
                             section.classList.remove("hidden");
                         }
-                        window.scrollTo(0, 0);
-                        // Close all open dropdowns after clicking
+
+                        // Close any open dropdown
                         document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
                             openItem.classList.remove('open');
                         });
+
+                        window.scrollTo(0, 0);
                     });
                 }
             });
@@ -319,19 +250,19 @@
                     e.preventDefault();
                     const parent = this.parentElement;
 
-                    // Close other open dropdowns except this one
+                    // Close other open dropdowns
                     document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
                         if (openItem !== parent) openItem.classList.remove('open');
                     });
 
-                    // Toggle this dropdown
+                    // Toggle the current one
                     parent.classList.toggle('open');
                 });
             });
 
             // Close dropdowns when clicking outside menu
             document.addEventListener('click', function (e) {
-                if (!e.target.closest('.menu li.dropdown')) {
+                if (!e.target.closest('.menu')) {
                     document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
                         openItem.classList.remove('open');
                     });
@@ -339,6 +270,7 @@
             });
         });
     </script>
+
 
 
 </body>
