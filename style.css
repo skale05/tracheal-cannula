@@ -64,10 +64,10 @@ nav {
     user-select: none;
 }
 
-/* Remove hover show to allow JS toggle later */
-/* .menu li.dropdown:hover .dropdown-content {
+/* Show dropdown on hover */
+.menu li.dropdown:hover .dropdown-content {
     display: block;
-} */
+}
 
 /* Dropdown list reset */
 .dropdown-content li {
@@ -83,8 +83,7 @@ nav {
     text-decoration: none;
     display: block;
     border-radius: 6px;
-    font-weight: normal;
-    /* Changed to normal for uniformity */
+    font-weight: bold;
     font-size: 16px;
     transition: background-color 0.25s ease;
 }
@@ -94,10 +93,10 @@ nav {
     background-color: #b6d9ff;
 }
 
-/* Download buttons styling: make consistent with dropdown links */
+/* Download buttons styling */
 .download-btn {
     display: inline-block;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 16px;
     color: #0b3d91;
     text-decoration: none;
@@ -110,30 +109,24 @@ nav {
     user-select: text;
 }
 
-/* Hover effect for download buttons */
 .download-btn:hover {
     background-color: #8ac6ff;
     border-color: #0b3d91;
 }
 
-/* Download instruction text below buttons, aligned */
+/* Download instruction text below buttons */
 .download-instruction {
     font-size: 13px;
     font-style: italic;
     color: #5178a3;
-    padding-left: 25px;
+    padding-left: 45px;
+    /* aligned with button text start */
     margin-top: 3px;
     margin-bottom: 12px;
     user-select: text;
     max-width: 210px;
     line-height: 1.3;
 }
-
-/* Show dropdown when 'open' class added (for JS toggling) */
-.menu li.dropdown.open>.dropdown-content {
-    display: block;
-}
-
 
 /* Hero image styling */
 .hero {
