@@ -7,6 +7,24 @@ body {
     color: #3a444d;
 }
 
+.hero {
+    width: 100%;
+    height: auto;
+    /* no fixed height */
+    margin-bottom: 0;
+}
+
+.hero img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    /* shows entire image */
+    border-radius: 10px !important;
+    display: block !important;
+}
+
+
+
 nav {
     background-color: #8ac6ff;
     padding: 15px 0;
@@ -145,19 +163,24 @@ nav {
 /* Hero image styling */
 .hero {
     width: 100%;
-    height: 350px;
-    overflow: hidden;
+    height: auto;
+    /* ← Let height grow based on image */
+    overflow: visible;
     margin-bottom: 35px;
 }
 
 .hero img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
+    /* ← Shows entire image */
     border-radius: 10px;
+    display: block;
 }
 
-main {
+
+/* ===== HOMEPAGE MAIN ===== */
+.home-main {
     padding: 20px 25px;
     max-width: 900px;
     margin: 0 auto;
@@ -165,6 +188,39 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(138, 198, 255, 0.25);
 }
+
+/* ===== SECTION PAGES MAIN (Über Mich, etc.) ===== */
+.section-main {
+    max-width: 700px;
+    margin: 40px auto 60px;
+    padding: 25px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(138, 198, 255, 0.15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.section-main h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #0b3d91;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #8ac6ff;
+    padding-bottom: 8px;
+}
+
+.section-main p {
+    font-size: 15px;
+    margin-bottom: 18px;
+    color: #34495e;
+    text-align: justify;
+    text-indent: 1.2em;
+}
+
 
 h2 {
     color: #0b3d91;
@@ -245,4 +301,105 @@ h2 {
 
 .menu li.dropdown>a {
     cursor: pointer;
+}
+
+/* Content area styling for Über Mich, Einleitung, Portfolioplanung */
+/* Content area styling for Über Mich, Einleitung, Portfolioplanung */
+
+
+
+
+
+/* Back to start page button/link */
+.back-link {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 12px 28px;
+    background-color: #8ac6ff;
+    color: #0b3d91;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(138, 198, 255, 0.5);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-link:hover,
+.back-link:focus {
+    background-color: #0b3d91;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(11, 61, 145, 0.7);
+    outline: none;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Lightbox styles */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+main h3 {
+    font-size: 1.3rem;
+    /* ~21px */
+    font-weight: 700;
+    color: #0b3d91;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 4px solid #8ac6ff;
+    padding-left: 10px;
+    letter-spacing: 0.5px;
+}
+
+main h4 {
+    font-size: 1.6rem;
+    color: #0b3d91;
 }

@@ -14,6 +14,7 @@
             <li><a href="uber-mich.html">Über Mich</a></li>
             <li><a href="einleitung.html">Einleitung</a></li>
             <li><a href="portfolioplanung.html">Portfolioplanung</a></li>
+            <li><a href="schiftliche-ausarbeitung.pdf">Schiftliche Ausarbeitung</a></li>
 
 
             <li class="dropdown">
@@ -32,8 +33,8 @@
             <li class="dropdown">
                 <a href="#interview">Interview</a>
                 <ul class="dropdown-content">
-                    <li><a href="#" id="nav-einleitung-video">Einleitung zum Video</a></li>
-                    <li><a href="#" id="nav-interview-video">Interview mit Patient</a></li>
+                    <li><a href="interview-einleitung-zum-video.html">Einleitung zum Video</a></li>
+                    <li><a href="interview-video.mp4">Interview mit Patient</a></li>
                     <li><a href="interview-eigenreflektion.html">Eigenreflektion</a></li>
                 </ul>
             </li>
@@ -42,17 +43,20 @@
                 <a href="#">Abschluss Reflektion</a>
                 <ul class="dropdown-content">
                     <li><a href="#" id="nav-reflektion-kollegin">Reflektion meiner Kollegin</a></li>
-                    <li><a href="#" id="nav-eigene-abschlussreflektion">Eigene Abschlussreflektion</a></li>
+                    <li><a href="nav-eigene-abschlussreflektion.html">Eigene Abschlussreflektion</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
-    <section id="home" class="hero">
-        <img src="tracheal-cannula.jpg.webp" alt="Tracheal Cannula" />
+    <section id="home" class="hero toggle-section">
+        <img src="tracheal-cannula.jpg" alt="Tracheal Cannula" />
     </section>
 
-    <main>
+    <main class="home-main">
+        <!-- Your homepage content -->
+
+
         <!-- Über mich Section -->
         <section id="uber-mich" class="toggle-section hidden">
             <h2>Über mich</h2>
@@ -150,8 +154,8 @@
 
         <!-- Photos Section -->
         <section id="photos" class="toggle-section hidden">
-            <h2>Photos</h2>
-            <div class="gallery">
+            <h2>Fotogalerie</h2>
+            <div class="photo-gallery">
                 <img src="image1.jpg" alt="Foto 1" />
                 <img src="image2.jpg" alt="Foto 2" />
                 <img src="image3.jpg" alt="Foto 3" />
@@ -163,9 +167,17 @@
                 <img src="image9.jpg" alt="Foto 9" />
                 <img src="image10.jpg" alt="Foto 10" />
                 <img src="image11.jpg" alt="Foto 11" />
+            </div>
 
+            <a href="index.html" class="back-link">ZURÜCK ZUR STARTSEITE</a>
+
+            <!-- Lightbox -->
+            <div id="lightbox" class="lightbox hidden">
+                <span class="close">&times;</span>
+                <img class="lightbox-image" src="" alt="Vergrößertes Bild">
             </div>
         </section>
+
 
         <!-- Fortbildung Section (for internal linking) -->
         <section id="fortbildung" class="toggle-section hidden">
@@ -174,18 +186,9 @@
         </section>
 
         <!-- Interview Sections -->
-        <section id="einleitung-video" class="toggle-section hidden">
-            <h2>Einleitung zum Video</h2>
-            <p>Hier können Sie die Einleitung zum Interviewvideo sehen.</p>
-        </section>
 
-        <section id="interview-video" class="toggle-section hidden">
-            <h2>Interview mit Patient</h2>
-            <video controls width="600">
-                <source src="interview-video.mp4" type="video/mp4" />
-                Ihr Browser unterstützt das Video-Tag nicht.
-            </video>
-        </section>
+
+
 
         <section id="interview-eigenreflektion" class="toggle-section hidden">
             <h2>Eigenreflektion zum Interview</h2>
@@ -212,73 +215,100 @@
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Section toggle mapping
-            const sections = {
-                "nav-uber-mich": "uber-mich",
-                "nav-einleitung": "einleitung",
-                "nav-portfolioplanung": "portfolioplanung",
-                "nav-photos": "photos",
-                "nav-einleitung-video": "einleitung-video",
-                "nav-interview-video": "interview-video",
-                "nav-reflektion-kollegin": "reflektion-kollegin",
-                "nav-eigene-abschlussreflektion": "eigene-abschlussreflektion"
-            };
+        "nav-home"; "home",
 
-            // Toggle visible section and hide others
-            Object.keys(sections).forEach(navId => {
-                const navElement = document.getElementById(navId);
-                if (navElement) {
-                    navElement.addEventListener("click", e => {
+            document.addEventListener("DOMContentLoaded", function () {
+                // Section toggle mapping
+                const sections = {
+                    "nav-uber-mich": "uber-mich",
+                    "nav-einleitung": "einleitung",
+                    "nav-portfolioplanung": "portfolioplanung",
+                    "nav-photos": "photos",
+                    "nav-einleitung-video": "einleitung-video",
+                    "nav-interview-video": "interview-video",
+                    "nav-reflektion-kollegin": "reflektion-kollegin",
+                    "nav-eigene-abschlussreflektion": "eigene-abschlussreflektion"
+                };
+
+                // Toggle visible section and hide others
+                Object.keys(sections).forEach(navId => {
+                    const navElement = document.getElementById(navId);
+                    if (navElement) {
+                        navElement.addEventListener("click", e => {
+                            e.preventDefault();
+
+                            // Hide all toggle sections
+                            document.querySelectorAll(".toggle-section").forEach(sec => {
+                                sec.classList.add("hidden");
+                            });
+
+                            // Show the selected one
+                            const sectionId = sections[navId];
+                            const section = document.getElementById(sectionId);
+                            if (section) {
+                                section.classList.remove("hidden");
+                            }
+
+                            // Close any open dropdown
+                            document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                                openItem.classList.remove('open');
+                            });
+
+                            window.scrollTo(0, 0);
+                        });
+                    }
+                });
+
+                // Dropdown toggle on click
+                document.querySelectorAll('.menu li.dropdown > a').forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
                         e.preventDefault();
+                        const parent = this.parentElement;
 
-                        // Hide all toggle sections
-                        document.querySelectorAll(".toggle-section").forEach(sec => {
-                            sec.classList.add("hidden");
+                        // Close other open dropdowns
+                        document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                            if (openItem !== parent) openItem.classList.remove('open');
                         });
 
-                        // Show the selected one
-                        const sectionId = sections[navId];
-                        const section = document.getElementById(sectionId);
-                        if (section) {
-                            section.classList.remove("hidden");
-                        }
+                        // Toggle the current one
+                        parent.classList.toggle('open');
+                    });
+                });
 
-                        // Close any open dropdown
+                // Close dropdowns when clicking outside menu
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('.menu')) {
                         document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
                             openItem.classList.remove('open');
                         });
-
-                        window.scrollTo(0, 0);
-                    });
-                }
-            });
-
-            // Dropdown toggle on click
-            document.querySelectorAll('.menu li.dropdown > a').forEach(toggle => {
-                toggle.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const parent = this.parentElement;
-
-                    // Close other open dropdowns
-                    document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
-                        if (openItem !== parent) openItem.classList.remove('open');
-                    });
-
-                    // Toggle the current one
-                    parent.classList.toggle('open');
+                    }
                 });
             });
 
-            // Close dropdowns when clicking outside menu
-            document.addEventListener('click', function (e) {
-                if (!e.target.closest('.menu')) {
-                    document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
-                        openItem.classList.remove('open');
-                    });
-                }
+        // Lightbox functionality
+        const images = document.querySelectorAll(".photo-gallery img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.querySelector(".lightbox-image");
+        const closeBtn = document.querySelector(".lightbox .close");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImage.src = img.src;
+                lightbox.classList.remove("hidden");
             });
         });
+
+        closeBtn.addEventListener("click", () => {
+            lightbox.classList.add("hidden");
+        });
+
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add("hidden");
+            }
+        });
+
+
     </script>
 
 
