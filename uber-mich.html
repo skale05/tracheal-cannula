@@ -76,6 +76,103 @@
 
         <a href="index.html" class="back-link">ZURÜCK ZUR STARTSEITE</a>
     </main>
+    <script>
+        "nav-home"; "home",
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Section toggle mapping
+                const sections = {
+                    "nav-uber-mich": "uber-mich",
+                    "nav-einleitung": "einleitung",
+                    "nav-portfolioplanung": "portfolioplanung",
+                    "nav-photos": "photos",
+                    "nav-einleitung-video": "einleitung-video",
+                    "nav-interview-video": "interview-video",
+                    "nav-reflektion-kollegin": "reflektion-kollegin",
+                    "nav-eigene-abschlussreflektion": "eigene-abschlussreflektion"
+                };
+
+                // Toggle visible section and hide others
+                Object.keys(sections).forEach(navId => {
+                    const navElement = document.getElementById(navId);
+                    if (navElement) {
+                        navElement.addEventListener("click", e => {
+                            e.preventDefault();
+
+                            // Hide all toggle sections
+                            document.querySelectorAll(".toggle-section").forEach(sec => {
+                                sec.classList.add("hidden");
+                            });
+
+                            // Show the selected one
+                            const sectionId = sections[navId];
+                            const section = document.getElementById(sectionId);
+                            if (section) {
+                                section.classList.remove("hidden");
+                            }
+
+                            // Close any open dropdown
+                            document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                                openItem.classList.remove('open');
+                            });
+
+                            window.scrollTo(0, 0);
+                        });
+                    }
+                });
+
+                // Dropdown toggle on click
+                document.querySelectorAll('.menu li.dropdown > a').forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+
+                        // Close other open dropdowns
+                        document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                            if (openItem !== parent) openItem.classList.remove('open');
+                        });
+
+                        // Toggle the current one
+                        parent.classList.toggle('open');
+                    });
+                });
+
+                // Close dropdowns when clicking outside menu
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('.menu')) {
+                        document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                            openItem.classList.remove('open');
+                        });
+                    }
+                });
+            });
+
+        // Lightbox functionality
+        const images = document.querySelectorAll(".photo-gallery img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.querySelector(".lightbox-image");
+        const closeBtn = document.querySelector(".lightbox .close");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImage.src = img.src;
+                lightbox.classList.remove("hidden");
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            lightbox.classList.add("hidden");
+        });
+
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add("hidden");
+            }
+        });
+
+
+    </script>
+
 </body>
 
 </html>

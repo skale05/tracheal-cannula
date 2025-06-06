@@ -54,13 +54,147 @@
         <!-- Text content for Über Mich, etc. -->
 
 
-        <h4>lorem ipsum</h4>
-        <p>llorem ipsum
+        <h4>Eigene Abschlussreflektion</h4>
+        <p>Die Bearbeitung dieses Portfolios zum Thema Trachealkanülenmanagement war für mich eine intensive, spannende
+            und bereichernde Erfahrung. Zu Beginn war das Thema für mich eine große Herausforderung, da ich bislang nur
+            wenig praktische Berührungspunkte mit tracheotomierten Patient:innen hatte. Umso mehr war es mir ein
+            Anliegen, mich fundiert mit diesem Pflegebereich auseinanderzusetzen und mein Wissen auf eine sichere Basis
+            zu stellen. </p>
+
+        <p>
+            Im Laufe des Projekts habe ich nicht nur viele neue fachliche Erkenntnisse gewonnen, sondern auch gelernt,
+            wie wichtig strukturierte Vorbereitung, interdisziplinärer Austausch und Selbstreflexion im Pflegealltag
+            sind. Besonders bereichernd war für mich die eigenständige Erstellung von Präsentationen und Materialien
+            sowie die Umsetzung einer internen Fortbildung. Dadurch konnte ich mein Wissen nicht nur vertiefen, sondern
+            auch an Kolleg:innen weitergeben.
+        </p>
+        <p>
+            Ein Projekt in diesem Umfang ist jedoch nicht allein zu bewältigen – deshalb möchte ich mich an dieser
+            Stelle ganz herzlich bedanken: </p>
+        <p>
+            Bei meinen Kolleginnen, die mich durch wertvolle Gespräche, ehrliche Rückmeldungen und den gemeinsamen
+            Austausch tatkräftig unterstützt haben. Ihre Offenheit hat mir geholfen, Unsicherheiten zu überwinden und
+            mit mehr Selbstvertrauen an das Thema heranzugehen.
+        </p>
+        <p>
+            Bei meinem Mann, der mich mit technischer Unterstützung, Geduld und Motivation begleitet hat – insbesondere
+            bei der Erstellung und Veröffentlichung der Website. Ohne ihn wäre die Umsetzung in dieser Form nicht
+            möglich gewesen. </p>
+        <p>
+            Und bei Jessi, die sich Zeit für eine ausführliche Rückmeldung genommen hat. Ihre Hinweise waren nicht nur
+            hilfreich, sondern auch sehr professionell und kompetent. Ich schätze ihre Expertise sehr und bin dankbar
+            für ihre konstruktive und wertschätzende Art.
+
+        </p>
+        <p>
+            Insgesamt hat mich dieses Projekt sowohl fachlich als auch persönlich wachsen lassen. Ich habe gelernt, wie
+            wichtig es ist, Eigeninitiative zu zeigen, neue Themen mutig anzugehen und das eigene Wissen zu teilen.
+            Diese Erfahrungen nehme ich mit in meinen weiteren beruflichen Weg – mit mehr Sicherheit, Motivation und der
+            Bereitschaft, auch künftig Verantwortung für qualitätsvolle Pflege zu übernehmen.
+
 
         </p>
 
         <a href="index.html" class="back-link">ZURÜCK ZUR STARTSEITE</a>
     </main>
+
+    <script>
+        "nav-home"; "home",
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Section toggle mapping
+                const sections = {
+                    "nav-uber-mich": "uber-mich",
+                    "nav-einleitung": "einleitung",
+                    "nav-portfolioplanung": "portfolioplanung",
+                    "nav-photos": "photos",
+                    "nav-einleitung-video": "einleitung-video",
+                    "nav-interview-video": "interview-video",
+                    "nav-reflektion-kollegin": "reflektion-kollegin",
+                    "nav-eigene-abschlussreflektion": "eigene-abschlussreflektion"
+                };
+
+                // Toggle visible section and hide others
+                Object.keys(sections).forEach(navId => {
+                    const navElement = document.getElementById(navId);
+                    if (navElement) {
+                        navElement.addEventListener("click", e => {
+                            e.preventDefault();
+
+                            // Hide all toggle sections
+                            document.querySelectorAll(".toggle-section").forEach(sec => {
+                                sec.classList.add("hidden");
+                            });
+
+                            // Show the selected one
+                            const sectionId = sections[navId];
+                            const section = document.getElementById(sectionId);
+                            if (section) {
+                                section.classList.remove("hidden");
+                            }
+
+                            // Close any open dropdown
+                            document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                                openItem.classList.remove('open');
+                            });
+
+                            window.scrollTo(0, 0);
+                        });
+                    }
+                });
+
+                // Dropdown toggle on click
+                document.querySelectorAll('.menu li.dropdown > a').forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+
+                        // Close other open dropdowns
+                        document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                            if (openItem !== parent) openItem.classList.remove('open');
+                        });
+
+                        // Toggle the current one
+                        parent.classList.toggle('open');
+                    });
+                });
+
+                // Close dropdowns when clicking outside menu
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('.menu')) {
+                        document.querySelectorAll('.menu li.dropdown.open').forEach(openItem => {
+                            openItem.classList.remove('open');
+                        });
+                    }
+                });
+            });
+
+        // Lightbox functionality
+        const images = document.querySelectorAll(".photo-gallery img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.querySelector(".lightbox-image");
+        const closeBtn = document.querySelector(".lightbox .close");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImage.src = img.src;
+                lightbox.classList.remove("hidden");
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            lightbox.classList.add("hidden");
+        });
+
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add("hidden");
+            }
+        });
+
+
+    </script>
+
 </body>
 
 </html>
